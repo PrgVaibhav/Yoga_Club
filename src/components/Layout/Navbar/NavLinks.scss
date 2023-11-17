@@ -1,0 +1,32 @@
+@use "../../../styles/foundation/basics" as basics;
+
+.nav_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  li {
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    .icon {
+      vertical-align: middle;
+    }
+    &:hover {
+      background-color: basics.$lightSecondaryColor;
+    }
+
+    a {
+      color: black;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+  }
+}

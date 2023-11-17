@@ -1,0 +1,81 @@
+@use "../../styles/foundation/basics" as basics;
+
+.join_club_section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("../../assets/yoga_club.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  .about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 600px;
+    max-width: 100%;
+
+    @media screen and (max-width: 768px) {
+      padding: 10px;
+    }
+
+    h3 {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 500;
+
+      @media screen and (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    a {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+      @media screen and (max-width: 660px) {
+        text-align: left;
+      }
+
+      button {
+        border: none;
+        box-shadow: 0px 0px 2px white;
+        padding: 10px;
+        width: 50%;
+        background-color: transparent;
+        color: white;
+        font-size: 1rem;
+        margin: auto;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 0%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          border-radius: 10px;
+          transition: all 0.3s ease-in-out;
+          transform-origin: left;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+            background-color: basics.$tertiaryColor;
+          }
+        }
+      }
+    }
+  }
+}

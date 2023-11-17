@@ -1,0 +1,79 @@
+@use "../../styles/foundation/template" as template;
+@use "../../styles/foundation/basics" as basics;
+
+.about_us_section {
+  @include template.flexBox(
+    $direction: column,
+    $justify: center,
+    $align: center
+  );
+  // width: 800px;
+  max-width: 100%;
+  margin: 1rem auto;
+  padding: 10px;
+  min-height: 70vh;
+  .heading {
+    align-self: flex-start;
+    h3 {
+      font-size: 2.5rem;
+      color: basics.$tertiaryColor;
+      margin: 0px auto 20px auto;
+
+      @media screen and (max-width: 768px) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  .cards {
+    @include template.flexBox(
+      $direction: row,
+      $justify: center,
+      $align: stretch
+    );
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .card {
+      max-width: 100%;
+      flex: 1 0 250px;
+      padding: 10px;
+      box-shadow: 0 0 2px basics.$tertiaryColor;
+      @include template.flexBox(
+        $direction: column,
+        $justify: center,
+        $align: flex-start
+      );
+      gap: 10px;
+      border-radius: 10px;
+
+      &:hover {
+        box-shadow: 0 0 5px basics.$tertiaryColor;
+      }
+      @media screen and (max-width: 768px) {
+        flex: 1 0 100%;
+      }
+      span {
+        @include template.flexBox(
+          $direction: row,
+          $justify: center,
+          $align: center
+        );
+        font-weight: 500;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: basics.$tertiaryColor;
+      }
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      p {
+        color: basics.$lightTextColor;
+        font-size: 1rem;
+      }
+    }
+  }
+}

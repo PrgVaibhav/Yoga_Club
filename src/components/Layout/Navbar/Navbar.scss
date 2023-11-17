@@ -1,0 +1,86 @@
+@use "../../../styles/foundation/basics" as basics;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0px 0px 10px basics.$secondaryColor;
+  box-shadow: 0px 0px 5px basics.$tertiaryColor;
+  position: relative;
+  position: sticky;
+  top: 0;
+
+  z-index: 1000;
+  width: 100%;
+  background-color: basics.$primaryColor;
+  .logo {
+    h1 {
+      font-size: 2.1rem;
+      font-family: basics.$secondaryFontFamily;
+      .yoga {
+      }
+      .world {
+        color: basics.$secondaryColor;
+        color: basics.$tertiaryColor;
+      }
+    }
+  }
+
+  .button_toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    display: none;
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+    }
+
+    span {
+      width: 35px;
+      height: 4px;
+      background-color: black;
+      transition: all 0.5s ease-in-out;
+
+      &.active:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+      &.active:nth-child(2) {
+        display: none;
+      }
+      &.active:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+      }
+    }
+  }
+
+  .navbar {
+    @media screen and (max-width: 768px) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: max-content;
+      background-color: basics.$primaryColor;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+      transition: all 0.5s ease-in-out;
+      transform: translateX(-100%);
+      box-shadow: 0px 0px 10px;
+      opacity: 0;
+      visibility: hidden;
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        box-shadow: basics.$secondaryColor 1.95px 1.95px 2.6px;
+        transform: translateX(0);
+      }
+    }
+  }
+}
